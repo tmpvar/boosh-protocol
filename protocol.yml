@@ -1,0 +1,30 @@
+types:
+  Window:
+    type: GLFWWindow*
+    transport: handle
+    methods:
+      setTitle:
+        target:
+          name: glfwSetWindowTitle
+          args:
+            window: GLFWWindow*
+            title: string
+  Monitor:
+    type: GLFWMonitor*
+    transport: handle
+
+functions:
+  createWindow:
+    returns: Window
+    args:
+      width: ui32
+      height: ui32
+      title: string
+      monitor:
+        type: handle
+        class: Monitor
+        default: NULL
+      share:
+        type: handle
+        class: Window
+        default: NULL
